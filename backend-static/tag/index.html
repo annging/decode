@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <title>后台管理-文章</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="/post/index.html">文章管理</a>
+            </li>
+            <li>
+                <a href="/tag/index.html">分类管理</a>
+            </li>
+        </ul>
+    </nav>
+    <h1>文章列表</h1>
+    <ul>
+        <li></li>
+    </ul>
+    <script>
+        window.onload =  function() {
+            var oReq = new XMLHttpRequest();
+            oReq.open('GET', 'http://localhost:3000/decode/api/tag/list', true);
+            oReq.send();
+
+            oReq.onreadystatechange = function() {
+                if (oReq.readyState == 4 && oReq.status == 200) {
+                    var json = oReq.responseText;
+                    console.log(json);
+                }
+            }
+        };
+    </script>
+</body>
+</html>
